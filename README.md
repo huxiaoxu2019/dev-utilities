@@ -1,1 +1,1 @@
-# terminal-utilities
+# dev-utilities
