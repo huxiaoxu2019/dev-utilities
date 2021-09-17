@@ -1,0 +1,31 @@
+#!/Users/xu_hu/.pyenv/versions/venv-3.8.7/bin/python
+import pyotp
+import sys
+import os
+
+if len(sys.argv) < 2:
+    print("Usage example: totp a [--echo]")
+    sys.exit()
+
+type = sys.argv[1]
+echo = False
+totp = None
+
+if len(sys.argv) >= 3:
+    for i in range(2, len(sys.argv)):
+        if sys.argv[i] == "--echo":
+            echo = True
+
+if type == "ali":
+    f = open("/Users/xu_hu/.keys/aliyun_totp")
+
+key = f.readline().strip()
+f.close()
+totp = pyotp.TOTP(key)
+
+
+if not totp == None:
+    code = totp.now()
+    if echo:
+        print(code)
+    os.system("echo %s | pbcopy"%code)
