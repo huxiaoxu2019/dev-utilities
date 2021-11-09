@@ -1,0 +1,5 @@
+#!/bin/bash
+IP=$1
+
+data=`curl -s ipinfo.io/$IP\?token=0ceffa19afb893` 
+echo $data|jq

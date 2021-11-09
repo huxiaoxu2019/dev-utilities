@@ -1,0 +1,35 @@
+#!/usr/bin/expect 
+
+set timeout 30
+
+set hostname [lrange $argv 0 0]
+
+set passwd "password"
+
+spawn ssh $hostname
+
+if { $hostname == "ib" } {
+    expect "password:"  
+    send "password\r" 
+}
+
+if { $hostname == "acn_from_ib" } {
+    expect "password:"  
+    send "password\r" 
+    expect "AY140619235943Z"
+    send "ssh acn\r"
+    expect "password:"
+    send "password\r"
+}
+
+if { $hostname == "acn" } {
+    expect "password:"
+    send "password\r"
+}
+
+if { $hostname == "aus" } {
+    expect "password:"
+    send "password\r"
+}
+
+interact
