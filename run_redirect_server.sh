@@ -1,7 +1,7 @@
 #!/bin/bash
 # crontab * * * * * /Users/xu_hu/Developer/XuHu/Scripts/run_redirect_server.sh >> /Users/xu_hu/Developer/XuHu/Scripts/redirect_server_nohup.out 2>&1
 BASEPATH=$(cd `dirname $0`; pwd)
-pid=`ps -ef | grep node | grep redirect.js | awk '{print $2}'`
+pid=`ps -ef | grep node | grep redirect_server.js | awk '{print $2}'`
 if [ -z "$pid" ]
 then
     echo "server is not running"

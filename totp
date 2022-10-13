@@ -1,4 +1,4 @@
-#!/Users/xu_hu/.pyenv/versions/venv-3.8.7/bin/python
+#!/usr/bin/python
 import pyotp
 import sys
 import os
